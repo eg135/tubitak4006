@@ -1,0 +1,288 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.main-container {
+    text-align: center;
+    width: 90%;
+    max-width: 1000px;
+}
+
+#bilgi {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #f1c40f; /* Sarı renk */
+    font-weight: bold;
+    min-height: 30px;
+}
+
+/* SVG Ayarları */
+svg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+/* İllerin temel görünümü */
+path {
+    fill: #95a5a6; /* Gri tonu */
+    stroke: #fff;  /* Sınır çizgileri beyaz */
+    stroke-width: 1px;
+    transition: fill 0.3s ease; /* Renk geçişi yumuşak olsun */
+    cursor: pointer; /* Fare üzerine gelince el işareti çıksın */
+}
+
+/* Üzerine gelince (Hover) */
+path:hover {
+    fill: #e74c3c; /* Kırmızı tonu */
+    transform: translateY(-2px); /* Hafif yukarı kalkma efekti */
+}
+
+
+
+
+/* --- ŞEHİR SAYFALARI TASARIMI (EDEBİYAT KONSEPTİ) --- */
+
+/* Genel Yazı Tipi Ayarı */
+.sehir-sayfasi {
+    background-color: #2c3e50; /* Koyu gri/mavi ton */
+    font-family: 'Playfair Display', serif; /* Edebi, tırnaklı yazı tipi */
+    margin: 0;
+    padding: 0;
+    display: block; /* Flex yapısını iptal edip normal akışa geçiyoruz */
+    height: auto;
+}
+
+/* 1. BÖLÜM: KAPAK */
+.sehir-header {
+    height: 60vh; /* Ekranın %60'ını kaplasın */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* Resmin üzerine gelen siyah tül (Yazı okunsun diye) */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* %40 siyahlık */
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.header-content h1 {
+    font-size: 5rem; /* Çok büyük başlık */
+    margin: 0;
+    letter-spacing: 5px; /* Harfler arası boşluk */
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.alt-baslik {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* 2. BÖLÜM: ŞAİR KISMI (Siyah Arkaplan) */
+.sair-bolumu {
+    background-color: #1a1a1a; /* Koyu siyah */
+    color: #e0e0e0;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.sair-container {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    gap: 50px; /* Resim ve yazı arası boşluk */
+    flex-wrap: wrap; /* Mobilde alt alta geçsin */
+}
+
+.sair-resim-kutusu img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border: 5px solid #333; /* Çerçeve */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    sepia: 0.3; /* Hafif eskitme efekti */
+}
+
+.sair-yazisi h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+    display: inline-block;
+}
+
+
+
+
+
+.sair-yazisi p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #bbb;
+}
+
+
+
+/* 3. BÖLÜM: ŞİİR KISMI (Gri Arkaplan) */
+.siir-bolumu {
+    background-color: #2c3e50; /* Harita arka planıyla uyumlu */
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.siir-bolumu h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.siir-metni {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto; /* Ortala */
+}
+
+.siir-metni p {
+    margin-bottom: 25px;
+}
+
+.geri-don-link {
+    display: inline-block;
+    margin-top: 50px;
+    color: #aaa;
+    text-decoration: none;
+    border: 1px solid #aaa;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.geri-don-link:hover {
+    background: white;
+    color: #333;
+}
+
+/* --- BÖLÜM 3 DÜZENLEMESİ (Başlık Yanı Ses + Büyük Resim) --- */
+
+/* Başlık ve Sesin yan yana durmasını sağlayan kutu */
+.baslik-ve-ses {
+    display: flex;             /* Yan yana diz */
+    justify-content: space-between; /* Biri en sola, biri en sağa */
+    align-items: center;       /* Dikeyde ortala */
+    max-width: 1100px;         /* Genişlik sınırı (Resimle aynı hizada olsun) */
+    margin: 0 auto 20px auto;  /* Ortala ve alttan boşluk bırak */
+    padding: 0 20px;           /* Mobilde kenarlara yapışmasın */
+    flex-wrap: wrap;           /* Mobilde sığmazsa alt alta geçsin */
+}
+
+/* Bölümdeki başlık ayarı */
+.baslik-ve-ses h2 {
+    margin: 0;
+    font-size: 2rem;
+    color: #fff; /* Beyaz yazı */
+}
+
+/* Ses oynatıcı ayarı */
+.ses-oylaticisi {
+    display: flex;
+    align-items: center;
+}
+
+.ses-oylaticisi audio {
+    height: 40px;
+    width: 250px;
+    filter: invert(100%); /* Beyaz tema efekti */
+}
+
+/* Resmi BÜYÜTME ayarları */
+.alt-gorsel-kutusu {
+    text-align: center;
+    width: 100%;
+}
+
+.alt-gorsel-kutusu img {
+    width: 55%;            /* Ekranın %90'ını kaplasın (Bayağı büyük) */
+    max-width: 1200px;     /* Ama çok dev ekranlarda 1200px'i geçmesin */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Güçlü gölge */
+    border: 1px solid #444; /* İnce bir çerçeve */
+}
+
+/* Mobil uyum (Telefonda bakarsan bozulmasın diye) */
+@media (max-width: 768px) {
+    .baslik-ve-ses {
+        flex-direction: column; /* Alt alta geçsin */
+        gap: 15px;
+    }
+    .alt-gorsel-kutusu img {
+        width: 100%; /* Telefondan kenarlara sıfırla */
+    }
+}
+
+
+
+
+/* Sol Üst Köşe Ana Sayfa Linki */
+.home-link-fixed {
+    position: fixed; /* Sayfa kaydırılsa da yerinde sabit kalır */
+    top: 20px;       /* Üstten 20 piksel boşluk */
+    left: 20px;      /* Soldan 20 piksel boşluk */
+    z-index: 9999;   /* Diğer tüm öğelerin (başlık, resimler) üstünde durmasını sağlar */
+    opacity: 0.9;    /* Hafif şeffaf olsun */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Yumuşak geçiş efekti */
+}
+
+/* İkonun boyutu */
+.home-link-fixed img {
+    width: 150px; 
+    height:  auto;
+    display: block;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5)); /* Resmin daha net görünmesi için hafif gölge */
+}
+
+/* Üzerine gelince efekt */
+.home-link-fixed:hover {
+    opacity: 1; /* Tam netleşsin */
+    transform: scale(1.1); /* Hafifçe büyüsün */
+
+}
+
+
+/* Antalya'ya özel arka plan */
+.tema-deniz {
+    background-color: #e0f7fa; /* Açık mavi */
+    background-image: none; /* Eğer genel bir desen varsa onu kaldırır */
+}
+
+/* Diyarbakır'a özel arka plan */
+.tema-sicak {
+    background-color: #fff8e1; /* Açık sarı */
+}
